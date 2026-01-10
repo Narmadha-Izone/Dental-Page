@@ -181,17 +181,17 @@ nav {
 .login-btn {
     padding: 0.5rem 1.4rem;
     border-radius: 30px;
-    background: var(--accent);
-    color: var(--dark) !important;
+    background: var(--white);
+    color: var(--primary) !important;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .login-btn:hover {
-    background: #ffc233;
-    color: var(--dark) !important;
+    background: var(--primary);
+    color: var(--white) !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(240, 165, 0, 0.5);
+    box-shadow: 0 6px 18px rgba(53, 137, 240, 0.895);
 }
 
 /* Remove underline animation */
@@ -452,6 +452,69 @@ section {
 .fellowship-close:hover {
     color: var(--primary);
 }
+
+/* ===== MOBILE RESPONSIVE FELLOWSHIP MODAL ===== */
+@media (max-width: 768px) {
+
+    .fellowship-modal {
+        padding: 0.5rem;
+        align-items: flex-end; /* Bottom sheet style */
+    }
+
+    .fellowship-modal-content {
+        width: 100%;
+        max-width: 100%;
+        height: 95vh;
+        padding: 1.5rem;
+        border-radius: 16px 16px 0 0;
+        overflow-y: auto;
+    }
+
+    .modal-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .modal-details h2 {
+        font-size: 1.6rem;
+    }
+
+    .modal-details h4 {
+        font-size: 1.1rem;
+    }
+
+    .modal-details p {
+        font-size: 0.95rem;
+    }
+
+    .fellowship-close {
+        position: sticky;
+        top: 0;
+        right: 0;
+        margin-left: auto;
+        font-size: 1.5rem;
+        background: var(--white);
+        z-index: 10;
+    }
+
+    .modal-enquiry-form h3 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .modal-enquiry-form input,
+    .modal-enquiry-form textarea {
+        font-size: 1rem;
+        padding: 0.9rem;
+    }
+
+    .modal-enquiry-form button {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+}
+
 
 /* exam-learn */
 
@@ -766,11 +829,16 @@ section {
 .student-info h4 {
     color: var(--primary);
     margin-bottom: 0.2rem;
+    font-size: 1.4rem;
 }
 
 .rating {
     color: var(--accent);
     font-size: 1.2rem;
+    text-shadow:
+        0 0 4px rgba(255, 193, 7, 0.8),
+        0 0 8px rgba(255, 193, 7, 0.6),
+        0 0 12px rgba(255, 193, 7, 0.4);
 }
 
 .testimonial-card p {
@@ -811,7 +879,8 @@ section {
     justify-content: center;
     font-size: 5rem;
     color: var(--white);
-    box-shadow: 0 10px 40px var(--shadow);
+    box-shadow: 1px 3px 20px var(--secondary);
+   /* box-shadow: 0 10px 40px var(--shadow);*/
     overflow: hidden; /* IMPORTANT */
 }
 
@@ -848,8 +917,8 @@ section {
 }
 
 .achievement-slide {
-    min-width: 300px;
-    height: 280px;
+    min-width: 420px;
+    height: 380px;
     position: relative;
     border-radius: 25px;
     overflow: hidden;
@@ -951,7 +1020,8 @@ section {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     width: 100%;
     padding: 0.8rem;
     border: 2px solid #e0e0e0;
@@ -960,9 +1030,17 @@ section {
     transition: all 0.3s ease;
     font-family: inherit;
 }
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    cursor: pointer;
+}
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     outline: none;
     border-color: var(--secondary);
 }
@@ -1028,6 +1106,62 @@ section {
     color: var(--primary);
 }
 
+.map-container {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Mobile Responsive - Contact Section */
+@media (max-width: 768px) {
+
+    .contact-container {
+        grid-template-columns: 1fr; /* Stack vertically */
+        gap: 2rem;
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .contact-form h3,
+    .contact-info h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .info-item p {
+        padding-left: 0; /* Remove left indent */
+        text-align: left;
+    }
+}
+@media (max-width: 768px) {
+    .form-group input,
+    .form-group textarea {
+        font-size: 1rem;
+        padding: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+}
+
 
 /* Footer */
 footer {
@@ -1035,10 +1169,39 @@ footer {
     color: var(--white);
     text-align: center;
     padding: 2rem;
+    font-family: Arial, sans-serif;
 }
 
 footer p {
     margin: 0.5rem 0;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 22px;
+    margin: 0 12px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+/* Brand colors on hover */
+.social-icons a:hover .fa-instagram {
+    color: #E4405F;
+}
+
+.social-icons a:hover .fa-whatsapp {
+    color: #25D366;
+}
+.social-icons a:hover .fa-facebook-f {
+    color: #1877F2;
 }
 
 /* Responsive Design */
@@ -1158,6 +1321,8 @@ footer p {
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
     cursor: pointer;
+     display: flex;
+    flex-direction: column;
 }
 
 .course-card::before {
@@ -1262,6 +1427,7 @@ footer p {
     position: relative;
     overflow: hidden;
     border:none;
+    margin-top: auto;
 }
 
 .course-card .view-program:hover {
@@ -1296,64 +1462,6 @@ footer p {
         align-items: center;
     }
 }
-
-
-/* ===== MODAL ENQUIRY FORM ===== */
-/*
-.modal-enquiry-form {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: linear-gradient(135deg, #f4f9ff, #ffffff);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: none;
-    animation: fadeUp 0.4s ease;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal-enquiry-form h3 {
-    color: var(--primary);
-    margin-bottom: 1.2rem;
-    text-align: center;
-}
-
-.modal-enquiry-form form {
-    display: grid;
-    gap: 1rem;
-}
-
-.modal-enquiry-form input,
-.modal-enquiry-form textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border-radius: 10px;
-    border: 2px solid #e0e0e0;
-    font-size: 0.95rem;
-    transition: 0.3s;
-}
-
-.modal-enquiry-form input:focus,
-.modal-enquiry-form textarea:focus {
-    outline: none;
-    border-color: var(--secondary);
-}
-
-.modal-enquiry-form input[readonly] {
-    background: #f1f5f9;
-    font-weight: 600;
-    color: #333;
-}
-*/
 
 
 /* ===== MODAL TWO COLUMN LAYOUT ===== */

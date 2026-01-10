@@ -119,7 +119,7 @@ normalNavLinks.forEach(link => {
     });
 });
 
-
+/*
 // Contact Form Submission
 const contactForm = document.getElementById('contactForm');
 
@@ -160,7 +160,7 @@ contactForm.addEventListener('submit', async (e) => {
     }
 });
 
-
+*/
 // Scroll animations for sections
 const observerOptions = {
     threshold: 0.1,

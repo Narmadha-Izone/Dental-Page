@@ -1,59 +1,64 @@
 <?php
 // Set response type
-header('Content-Type: application/json');
-
-// Allow CORS (if needed)
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
 
 require_once "db_conn.php";
 
 // Get POST data
-$input = json_decode(file_get_contents('php://input'), true);
-if (!$input) {
+$name    = trim($_POST['name'] ?? '');
+$email   = trim($_POST['email'] ?? '');
+$phone   = trim($_POST['phone'] ?? '');
+$message = trim($_POST['message'] ?? '');
+$selectedCourse = trim($_POST['course'] ?? '');
+
+// Split course and course_detail safely
+$course = '';
+$course_detail = '';
+
+if ($selectedCourse) {
+    list($course, $course_detail) = preg_split('/\s*-\s*/', $selectedCourse, 2);
+}
+
+// Validate required fields
+if (!$name || !$email || !$message || !$course || !$course_detail) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Invalid JSON input.']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'All required fields must be filled.'
+    ]);
     exit;
 }
 
-// Validate fields
-$name = trim($input['name'] ?? '');
-$email = trim($input['email'] ?? '');
-$phone = trim($input['phone'] ?? '');
-$course = trim($input['course'] ?? '');
-$message = trim($input['message'] ?? '');
+// Insert into database using prepared statement
+$stmt = $conn->prepare(
+    "INSERT INTO contact_messages (uname, uemail, uphone, course, course_detail, cmessage) VALUES (?, ?, ?, ?, ?, ?)"
+);
 
-if (!$name || !$email || !$message) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Name, email, and message are required.']);
-    exit;
-}
-
-// Insert safely using prepared statements
-$stmt = $conn->prepare("INSERT INTO contact_messages (uname, uemail, uphone, course, cmessage) VALUES (?, ?, ?, ?, ?)");
 if (!$stmt) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Prepare statement failed.']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Prepare statement failed.'
+    ]);
     exit;
 }
-$stmt->bind_param("sssss", $name, $email, $phone, $course, $message);
+
+$stmt->bind_param(
+    "ssssss",
+    $name,
+    $email,
+    $phone,
+    $course,
+    $course_detail,
+    $message
+);
 
 if ($stmt->execute()) {
-    // Send email
-    $to = 'narmadhamuruganandham@gmail.com';
-    $subject = "New Contact Form Submission from $name";
-    $body = "Name: $name\nEmail: $email\nPhone: $phone\nCourse: $course\nMessage: $message";
-    $headers = "From: $email";
-
-    @mail($to, $subject, $body, $headers);
-
-    echo json_encode(['success' => true, 'message' => 'Message sent successfully!']);
+    echo  'Message saved successfully!';
+    echo  '<script>window.location.href="index.php"</script>';
 } else {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Database insert failed.']);
+    echo 'Database insert failed.';
 }
 
 $stmt->close();
 $conn->close();
-?>

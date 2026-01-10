@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King's Dental Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                 <img src="images/logo.jpg" alt="King's Dental Academy Logo" class="logo-img">
+                <span>King's Dental Academy</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-btn">Courses ▼</button>
+                    <div class="dropdown-content">
+                        <a href="#" id="mastershipsLink">Masterships</a>
+                        <a href="#" id="fellowshipsLink">Fellowships</a>
+                        <a href="#" id="examcourseLink">Examcourses</a>
+                        <a href="#" id="shortcourseLink">Shortcourses</a>
+                    </div>
+                </li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.php" class="login-btn">Login</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="images/heroImg.png" alt="Dental Illustration" class="hero-image">
+
+            <h1>Master the Art of Dental Excellence</h1>
+            <p>Transform your dental career with world-class education and hands-on training from industry experts</p>
+            <a href="#courses" class="cta-btn">Explore Courses</a>
+        </div>
+    </section>
+ -->
+
+     <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Master the Art of Dental Excellence</h1>
+            <p>Transform your dental career with world-class education and hands-on training from industry experts</p>
+            <a href="#courses" class="cta-btn">Explore Courses</a>
+        </div>
+    </section>
+
+
+     <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About King's Dental Academy</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Excellence in Dental Education Since 2010</h3>
+                    <p>King's Dental Academy is a premier institution dedicated to advancing dental education and professional development. We combine cutting-edge technology with time-tested teaching methods to deliver world-class training programs.</p>
+                    <p>Our faculty consists of renowned dental professionals and educators who bring decades of combined experience. We maintain small class sizes to ensure personalized attention and hands-on learning experiences.</p>
+                    <p>With state-of-the-art facilities and a commitment to innovation, we prepare dental professionals to excel in their careers and provide exceptional patient care.</p>
+                    <a href="#contact" class="cta-btn">Get In Touch</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/aboutimg.jpg" alt="about section Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Courses Section-->
+    <section id="courses" class="courses-section">
+        <h2 class="section-title">Our Programs</h2>
+        <div class="courses-container">
+
+            <!-- Fellowship Program Card -->
+            <div class="course-card fellowship-card">
+                <h3>Fellowship Programs</h3>
+                <p class="mode">Hybrid</p>
+                <p class="duration">6-month blended programs with clinical immersions and mentor reviews</p>
+                <p class="focus-title">Focus Areas</p>
+                <ul class="focus-areas">
+                    <li>Fixed Orthodontics</li>
+                    <li>Dental Implantology</li>
+                    <li>General Dentistry</li>
+                    <li>Clinical Endodontics</li>
+                </ul>
+                <!-- Monthly Payment Only -->
+                <p class="price">
+                 <span class="amount">₹19,999</span> <span class="per-month">/ per month</span>
+                </p>
+
+                <button class="view-program" data-target="fellowships">View Program</button>
+            </div>
+
+            <!-- Mastery Program Card -->
+            <div class="course-card fellowship-card">
+                <h3>Mastery Bootcamps</h3>
+                <p class="mode">On-site</p>
+                <p class="duration">Intensive 6-day chairside sessions focused on procedural excellence</p>
+                <p class="focus-title">Focus Areas</p>
+                <ul class="focus-areas">
+                    <li>Fixed Orthodontics</li>
+                    <li>Dental Implantology</li>
+                    <li>Cosmetic Dentistry</li>
+                    <li>Rotary Endodontics</li>
+                </ul>
+                <!-- Monthly Payment Only -->
+                <p class="price">
+                  <span class="amount">₹49,999</span> <span class="per-month">/ one time payment</span>
+                </p>
+
+                <button class="view-program" data-target="masterships">View Program</button>
+            </div>
+
+            <!-- Exam Course Card -->
+            <div class="course-card fellowship-card">
+                <h3>Exam Courses</h3>
+                <p class="mode">On-site</p>
+                <p class="duration">Intensive 6-day chairside sessions focused on procedural excellence</p>
+                <p class="focus-title">Focus Areas</p>
+                <ul class="focus-areas">
+                    <li>NBDE</li>
+                    <li>NDEB</li>
+                    <li>ORE</li>
+                    <li>ADC</li>
+                </ul>
+                <!-- Monthly Payment Only -->
+                <p class="price">
+                  <span class="amount">₹29,999</span> <span class="per-month">/ one time payment</span>
+                </p>
+
+                <button class="view-program" data-target="examcourse">View Program</button>
+            </div>
+
+             <!-- Short Course Card -->
+            <div class="course-card fellowship-card">
+                <h3>Short Courses</h3>
+                <p class="mode">On-site</p>
+                <p class="duration">Enhance your skills with our focused short-term programs</p>
+                <p class="focus-title">Focus Areas</p>
+                <ul class="focus-areas">
+                    <li>Latest Trends in Dental Materials</li>
+                    <li>Introduction to Digital Dentistry</li>
+                    <li>Emergency Procedures in Dentistry</li>
+                    <li>Overview of Pediatric Dentistry</li>
+                </ul>
+                <!-- Monthly Payment Only -->
+                <p class="price">
+                  <span class="amount">₹10,999</span> <span class="per-month">/ one time payment</span>
+                </p>
+
+                <button class="view-program" data-target="shortcourse">View Program</button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Matership Section-->
+    <section id="masterships" class="fellowships-section" style="display:none;">
+        <div class="container">
+            <h2 class="section-title">Mastery Programs</h2>
+            <p class="fellowship-subtitle">
+                Take your skills to the highest level with our intensive mastery programs.
+            </p>
+
+            <div class="fellowship-grid">
+
+                <div class="fellowship-card">
+                    <h3>Fixed Orthodontics</h3>
+                    <p>Advanced mastery program in fixed orthodontics.</p>
+                    <a href="#" class="mastery-learn" data-mastery="fixedortho">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Cosmetic Dentistry Course</h3>
+                    <p>Master the art of cosmetic dentistry.</p>
+                    <a href="#" class="mastery-learn" data-mastery="cosmetic">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Crown and Bridge Course</h3>
+                    <p>Comprehensive training in crown and bridge procedures.</p>
+                    <a href="#" class="mastery-learn" data-mastery="crownbridge">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Dental Implantology Course</h3>
+                    <p>Advanced implantology techniques and practice.</p>
+                    <a href="#" class="mastery-learn" data-mastery="implantology">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Dental Lab Technician Course</h3>
+                    <p>Training for dental lab technicians.</p>
+                    <a href="#" class="mastery-learn" data-mastery="labtech">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Facial Aesthetics Course</h3>
+                    <p>Mastery in facial aesthetics and cosmetology.</p>
+                    <a href="#" class="mastery-learn" data-mastery="facialaesthetics">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Basic Oral Surgery Clinical Course</h3>
+                    <p>Clinical course on basic oral surgery.</p>
+                    <a href="#" class="mastery-learn" data-mastery="oralsurgery">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Laser Dentistry Course</h3>
+                    <p>Advanced laser dentistry techniques.</p>
+                    <a href="#" class="mastery-learn" data-mastery="laserdentistry">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Periodontics Clinical Course</h3>
+                    <p>Clinical mastery in periodontics.</p>
+                    <a href="#" class="mastery-learn" data-mastery="periodontics">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Rotary Endodontics Course</h3>
+                    <p>Specialized course in rotary endodontics.</p>
+                    <a href="#" class="mastery-learn" data-mastery="rotaryendo">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Orthodontist Assistant Course</h3>
+                    <p>Training program for orthodontist assistants.</p>
+                    <a href="#" class="mastery-learn" data-mastery="orthoassistant">Learn more →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!--Fellowship Section-->
+    <section id="fellowships" class="fellowships-section" style="display:none;">
+        <div class="container">
+            <h2 class="section-title">Fellowship Programs</h2>
+            <p class="fellowship-subtitle">
+                Advance your career with our specialized fellowship programs designed for dental professionals.
+            </p>
+
+            <div class="fellowship-grid">
+
+                <div class="fellowship-card">
+                    <h3>Fellowship in Fixed Orthodontics</h3>
+                    <p>Comprehensive 6-month program designed to offer complete education in orthodontics.</p>
+                    <a href="#" class="fellowship-learn" data-fellowship="orthodontics">
+                        Learn more →
+                    </a>
+
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Fellowship in General Dentistry</h3>
+                    <p>Master the art of general dental practice with our intensive fellowship.</p>
+                    <a href="#" class="fellowship-learn" data-fellowship="generaldentistry">
+                        Learn more →
+                    </a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Fellowship in Restorative Dentistry</h3>
+                    <p>Advanced training in modern restorative techniques and materials.</p>
+                    <a href="#" class="fellowship-learn" data-fellowship="restorativedentistry">
+                        Learn more →
+                    </a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Fellowship in Clinical Endodontics</h3>
+                    <p>Specialized training in root canal therapy and endodontic procedures.</p>
+                    <a href="#" class="fellowship-learn" data-fellowship="endodontics">
+                        Learn more →
+                    </a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Fellowship in Dental Implantology</h3>
+                    <p>Complete guide to surgical and prosthetic aspects of dental implants.</p>
+                    <a href="#" class="fellowship-learn" data-fellowship="dentalimplantology">
+                        Learn more →
+                    </a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Fellowship in Cosmetic Dentistry</h3>
+                    <p>Learn to create beautiful smiles with our cosmetic dentistry fellowship.</p>
+                    <a href="#" class="fellowship-learn" data-fellowship="cosmeticdentistry">
+                        Learn more →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Exam Course Section -->
+    <section id="examcourse" class="fellowships-section" style="display:none;">
+        <div class="container">
+            <h2 class="section-title">International Exam Preparation Courses</h2>
+            <p class="fellowship-subtitle">
+                Prepare for international dental licensing examinations with expert guidance and comprehensive study materials.
+            </p>
+
+            <div class="fellowship-grid">
+
+                <div class="fellowship-card">
+                    <h3>NBDE - United States</h3>
+                    <p><strong>National Board Dental Examination</strong></p>
+                    <p>Two-part examination required for Indian dentists to practice in the U.S. Part I covers basic biomedical sciences, Part II focuses on clinical dentistry.</p>
+                    <a href="#" class="exam-learn" data-exam="nbde">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>NDEB - Canada</h3>
+                    <p><strong>National Dental Examining Board of Canada</strong></p>
+                    <p>Equivalency process including Written Examination (WREB) and Objective Structured Clinical Examination (OSCE) to assess knowledge and clinical skills.</p>
+                    <a href="#" class="exam-learn" data-exam="ndeb">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>ORE - United Kingdom</h3>
+                    <p><strong>Overseas Registration Examination</strong></p>
+                    <p>Two-part examination: ORE Part 1 (written multiple-choice questions) and ORE Part 2 (practical OSCE) required to practice dentistry in the UK.</p>
+                    <a href="#" class="exam-learn" data-exam="ore">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>ADC - Australia</h3>
+                    <p><strong>Australian Dental Council Examination</strong></p>
+                    <p>Comprehensive assessment including written and practical examinations evaluating knowledge and clinical skills of foreign-trained dentists.</p>
+                    <a href="#" class="exam-learn" data-exam="adc">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>NZDREX - New Zealand</h3>
+                    <p><strong>New Zealand Dentists Registration Examination</strong></p>
+                    <p>Complete examination with written and clinical components required to practice dentistry in New Zealand.</p>
+                    <a href="#" class="exam-learn" data-exam="nzdrex">Learn more →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Short Course Section -->
+    <section id="shortcourse" class="fellowships-section" style="display:none;">
+        <div class="container">
+            <h2 class="section-title">Short Courses</h2>
+            <p class="fellowship-subtitle">
+                Enhance your skills with our focused short-term programs designed for busy dental professionals.
+            </p>
+
+            <div class="fellowship-grid">
+
+                <div class="fellowship-card">
+                    <h3>Latest Trends in Dental Materials</h3>
+                    <p><strong>Duration: 2-3 hours</strong></p>
+                    <p>Overview of new materials and advancements in restorative dentistry.</p>
+                    <a href="#" class="short-learn" data-short="materials">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Effective Communication with Dental Patients</h3>
+                    <p><strong>Duration: 2 hours</strong></p>
+                    <p>Strategies for improving patient communication and building rapport.</p>
+                    <a href="#" class="short-learn" data-short="communication">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Introduction to Digital Dentistry</h3>
+                    <p><strong>Duration: 3 hours</strong></p>
+                    <p>Basics of digital impressions, CAD/CAM technology, and intraoral scanning.</p>
+                    <a href="#" class="short-learn" data-short="digital">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Emergency Procedures in Dentistry</h3>
+                    <p><strong>Duration: 2 hours</strong></p>
+                    <p>Managing common dental emergencies and immediate care protocols.</p>
+                    <a href="#" class="short-learn" data-short="emergency">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Infection Control in Dental Practice</h3>
+                    <p><strong>Duration: 2-3 hours</strong></p>
+                    <p>Review of current infection control protocols and best practices.</p>
+                    <a href="#" class="short-learn" data-short="infection">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Overview of Pediatric Dentistry</h3>
+                    <p><strong>Duration: 2-3 hours</strong></p>
+                    <p>Key considerations and techniques for treating pediatric patients.</p>
+                    <a href="#" class="short-learn" data-short="pediatric">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Periodontal Health and Maintenance</h3>
+                    <p><strong>Duration: 2-3 hours</strong></p>
+                    <p>Updates on periodontal disease management and maintenance.</p>
+                    <a href="#" class="short-learn" data-short="periodontal">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Introduction to Implant Dentistry</h3>
+                    <p><strong>Duration: 3 hours</strong></p>
+                    <p>Basics of dental implantology, including planning and placement.</p>
+                    <a href="#" class="short-learn" data-short="implant">Learn more →</a>
+                </div>
+
+                <div class="fellowship-card">
+                    <h3>Introduction to Cosmetic Dentistry</h3>
+                    <p><strong>Duration: 2 hours</strong></p>
+                    <p>Overview of aesthetic considerations and basic cosmetic procedures.</p>
+                    <a href="#" class="short-learn" data-short="cosmetic">Learn more →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+     <!-- Fellowship Detail Modal -->
+    <div class="fellowship-modal" id="fellowshipModal">
+        <div class="fellowship-modal-content">
+
+            <div class="modal-layout">
+
+                <!-- LEFT : Course Details -->
+                <div class="modal-details">
+                    <button class="fellowship-close" id="closeFellowship">✕</button>
+
+                    <h2 id="modalTitle"></h2>
+                    <h4 id="modalSubtitle"></h4>
+                    <p id="modalDescription"></p>
+                    <p id="modalDuration"></p>
+                    <p id="modalPrice"></p>
+                    <button id="enquiryBtn" class="enq-btn">Enquiry Now</button>
+                </div>
+
+                <!-- RIGHT : Enquiry Form -->
+                <div class="modal-enquiry-form" id="modalEnquiryForm">
+                    <h3>Enquire for this Program</h3>
+
+                    <form id="modalForm" method="post" action="enqform.php">
+                        <input type="text" placeholder="Full Name" name="enqName" required>
+                        <input type="email" placeholder="Email Address" name="enqEmail" required>
+                        <input type="tel" placeholder="Phone Number" name="enqPh" required>
+
+                        <input type="text" id="enqCourse" name="enqCourse" readonly>
+                        <input type="text" id="enqDuration" name="enqDur" readonly>
+
+                        <textarea rows="4" placeholder="Your Message" name="enqMsg" required></textarea>
+
+                        <button type="submit" class="submit-btn">Submit Enquiry</button>
+                    </form>
+                </div>
+
+            </div>
+<!-- 
+            <button class="fellowship-close" id="closeFellowship">✕</button>
+
+            <h2 id="modalTitle"></h2>
+            <h4 id="modalSubtitle"></h4>
+            <p id="modalDescription"></p>
+            <p id="modalDuration"></p>
+            <p id="modalPrice"></p>
+            <button id="enquiryBtn" class="enq-btn">Enquiry Now</button>
+        -->
+            <!-- Enquiry Form (Hidden by default) -->
+             <!--
+            <div class="modal-enquiry-form" id="modalEnquiryForm">
+                <h3>Enquire for this Program</h3>
+
+                <form id="modalForm">
+                    <input type="text" id="enqName" placeholder="Full Name" required>
+
+                    <input type="email" id="enqEmail" placeholder="Email Address" required>
+
+                    <input type="tel" id="enqPhone" placeholder="Phone Number" required>
+
+                    <input type="text" id="enqCourse" readonly>
+
+                    <input type="text" id="enqDuration" readonly>
+
+                    <textarea id="enqMessage" rows="4" placeholder="Your Message" required></textarea>
+
+                    <button type="submit" class="submit-btn">Submit Enquiry</button>
+                </form>
+            </div>
+        -->
+        </div>
+    </div>
+
+
+
+    <!-- Videos Section -->
+    <section id="videos">
+        <div class="container">
+            <h2 class="section-title">Teaching Videos</h2>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/2yxa67n5JR4?si=sGrn5ZQHc8bSml07" title="YouTube video player" frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Dental Extraction Procedure</h3>
+                        <p>Video description...</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe
+                            src="https://www.youtube.com/embed/saL6U7Vx6hc"
+                            title="Dental Extraction Procedure"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Dental Extraction Procedure</h3>
+                        <p>Step-by-step clinical demonstration of dental extraction techniques.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/qNKYxgSYwBk?si=sOCrm5GJB3H42dmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Aesthetic Smile Design</h3>
+                        <p>Master the principles of creating beautiful, natural-looking smiles</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/81qSdFYKRcc?si=GkeLszg_6ygp6PKb" title="YouTube video player" 
+                        frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Root Canal Mastery</h3>
+                        <p>Advanced endodontic techniques for complex cases</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/dFy4CkXqZoE?si=W_oiOHZLxAJUSJrw" title="YouTube video player" frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Orthodontic Case Planning</h3>
+                        <p>Comprehensive approach to orthodontic diagnosis and treatment</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-embed">
+                       <iframe src="https://www.youtube.com/embed/9tYlvEz1884?si=ei1n51bklKVbYSLd" title="YouTube video player" frameborder="0" 
+                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Periodontal Surgery Basics</h3>
+                        <p>Essential surgical techniques for periodontal treatment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Our Achievements</h2>
+
+            <div class="achievements-wrapper">
+                <button class="ach-arrow left" id="achPrev">❮</button>
+
+                <div class="achievements-slider-container">
+                    <div class="achievements-slider" id="achievementsSlider">
+
+                        <div class="achievement-slide">
+                            <img src="images/grouppic.webp" alt="group photo">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p>Dental Professionals Trained</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/conference1.webp" alt="conference1">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p>Hands-on Workshops</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/conference.webp" alt="conference">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p>75th INDIAN DENTAL CONFERENCE</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/teaching.webp" alt="teaching">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p>DENTAL PROFESSIONAL TRAINED</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/award.jpg" alt="award">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p>Years of Excellence</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/award4.webp" alt="award">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p> </p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/award1.jpg" alt="award">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p> </p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/award2.jpg" alt="award">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p> </p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/award3.jpg" alt="award">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p> </p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-slide">
+                            <img src="images/award5.jpg" alt="award">
+                            <div class="achievement-overlay">
+                                <!--<h3>20+</h3> -->
+                                <p> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="ach-arrow right" id="achNext">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Student Success Stories</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="student-info">
+                        <div class="student-avatar">DM</div>
+                        <div>
+                            <h4>Dr. Maha sekar</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>Academy has been an excellent learning space. The faculty explains every concept clearly and with real-time clinical relevance. I had a great experience. The mentors make complex topics feel simple, and the hands-on approach really boosts confidence. The atmosphere is friendly and motivating.
+                         Grateful for the knowledge, support, and the passion they bring to teaching. Thank you Dr Febel sir & Dr keerthi mam</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="student-info">
+                        <div class="student-avatar">SP</div>
+                        <div>
+                            <h4>Reuben Sanjithomas</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>My learning under Dr Febel and Dr kiruthiga was nothing short of amazing. The learning environment is top notch, and all your doubts are covered A-Z. As an advancing dental learner, this was by far my best experience with implantology. The sessions are all one to one and hands on. This betters you in-patient confidence with a new treatment modality you've adopted.
+                         I'd urge anyone who's trying to better their career to learn n train under them so as to better your future prospects.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="student-info">
+                        <div class="student-avatar">JR</div>
+                        <div>
+                            <h4>Dr. James Rodriguez</h4>
+                            <div class="rating">★★★★</div>
+                        </div>
+                    </div>
+                    <p>The orthodontics course exceeded my expectations. The blend of theory and practical application was perfect. I now confidently handle complex cases that I would have referred out before.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="student-info">
+                        <div class="student-avatar">EK</div>
+                        <div>
+                            <h4>Dr. Emily Kim</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>Outstanding education! The endodontics program taught me advanced techniques that have significantly improved my treatment outcomes. The instructors are world-class professionals.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="student-info">
+                        <div class="student-avatar">AN</div>
+                        <div>
+                            <h4>Dr. Ahmed Nasser</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>King's Dental Academy provided me with the skills and confidence to expand my practice. The periodontics course was thorough, practical, and immediately applicable to my daily work.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="student-info">
+                        <div class="student-avatar">LT</div>
+                        <div>
+                            <h4>Dr. Lisa Thompson</h4>
+                            <div class="rating">★★★★</div>
+                        </div>
+                    </div>
+                    <p>Exceptional training and support throughout the program. The combination of online resources and hands-on practice made learning efficient and effective. Worth every penny!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm" method="post" action="contactSubmit.php">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Interested Course</label>
+                            <select name="course" id="course" required>
+                                <option value=""> Select Course </option>
+
+                                <?php
+                                require_once "db_conn.php";
+
+                                $sql = "SELECT course_id, course, course_detail FROM course_details";
+                                $result = mysqli_query($conn, $sql);
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<option value="'. htmlspecialchars($row['course']) .'-'. htmlspecialchars($row['course_detail']) .'">'
+                                        . htmlspecialchars($row['course_detail']) .
+                                        '</option>';
+                                }
+                                ?>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="info-item">
+                        <h4>📍 Address</h4>
+                        <p>1st floor, Asha Arcade,<br> Promenade Road, Cantonment,<br> Tiruchirappalli, TamilNadu -620001</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>📞 Phone</h4>
+                        <p><a href="tel:8778951171">+91 8778951171</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h4>✉️ Email</h4>
+                        <p><a href="mailto:info@kingsdentalacademy.com">info@kingsdentalacademy.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h4>🕒 Office Hours</h4>
+                        <p>Monday - Friday: 10:00 AM - 6:00 PM<br>Saturday - Sunday: 10:00 AM - 6:00 PM</p>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15676.33402005035!2d78.666969537735!3d10.804916267869205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf592002527a1%3A0x12a9a148989c30a2!2sKings%20Academy!5e0!3m2!1sen!2sin!4v1766053815631!5m2!1sen!2sin"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 King's Dental Academy. All rights reserved.</p>
+        <p>Empowering dental professionals worldwide with excellence in education.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/kingsacademy_dentalacademy/?hl=en" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/p/Kings-Academy-100064089247966/" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            
+            <a href="https://wa.me/87789 51171" target="_blank" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

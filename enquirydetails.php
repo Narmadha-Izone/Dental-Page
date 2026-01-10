@@ -1,7 +1,21 @@
 <?php
 require_once "db_conn.php";
 
-$sql = "SELECT uname, uemail, uphone, course, cmessage FROM contact_messages ORDER BY uname ASC";
+//$sql = "SELECT uname, uemail, uphone, course, course_detail, cmessage, submitted_at FROM contact_messages ORDER BY uname ASC";
+$sql="
+    SELECT 
+        contmsg.uname uname, contmsg.uemail uemail, contmsg.uphone uphone, contmsg.course course,
+        contmsg.course_detail course_detail, contmsg.cmessage cmessage, contmsg.submitted_at submitted_at 
+    from 
+        contact_messages contmsg
+    union all 
+    select 
+        enq.enqname uname,enq.enqmail uemail,enq.enqph uphone,'' course,enq.enqcourse course_detail,
+        enq.enqmsg cmessage,enq.submitted_at submitted_at 
+    from 
+        enquiry_messages enq 
+    order by uname ASC
+";
 $result = $conn->query($sql);
 $total_enquiries = $result->num_rows;
 ?>
@@ -439,6 +453,59 @@ $total_enquiries = $result->num_rows;
         .table-wrapper::-webkit-scrollbar-thumb:hover {
             background: var(--primary);
         }
+
+        /* Date Picker Styling */
+        .date-picker {
+            padding: 0.7rem 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            color: var(--dark);
+            background-color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 160px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hover */
+        .date-picker:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(74, 159, 216, 0.15);
+        }
+
+        /* Focus */
+        .date-picker:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 4px rgba(74, 159, 216, 0.15);
+        }
+
+        /* Calendar icon (Chrome, Edge) */
+        .date-picker::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            background-color: transparent;
+            padding: 0.3rem;
+            filter: invert(35%) sepia(60%) saturate(450%) hue-rotate(175deg);
+        }
+
+        /* Disabled state */
+        .date-picker:disabled {
+            background-color: #f1f3f5;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 600px) {
+            .date-picker {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+
     </style>
 </head>
 
@@ -448,7 +515,7 @@ $total_enquiries = $result->num_rows;
         <div class="header">
             <div class="header-content">
                 <h1>
-                    🦷 Enquiry Management
+                    Enquiry Management
                 </h1>
                 <p>King's Dental Academy - Student Enquiries Dashboard</p>
             </div>
@@ -456,7 +523,7 @@ $total_enquiries = $result->num_rows;
                 <div class="number"><?php echo $total_enquiries; ?></div>
                 <div class="label">Total Enquiries</div>
             </div>
-            <a href="index.html" class="back-btn">← Back to Home</a>
+            <a href="index.php" class="back-btn">← Back to Home</a>
         </div>
 
         <!-- Controls -->
@@ -474,6 +541,9 @@ $total_enquiries = $result->num_rows;
                 <button class="filter-btn active" onclick="filterTable('all')">All Courses</button>
                 <button class="filter-btn" onclick="filterTable('fellowship')">Fellowship</button>
                 <button class="filter-btn" onclick="filterTable('mastery')">Mastery</button>
+                <button class="filter-btn" onclick="filterTable('shortcourse')">Short Courses</button>
+                <button class="filter-btn" onclick="filterTable('examcourse')">Exam Courses</button>
+                <input type="date" id="dateFilter" class="date-picker" onchange="filterByDate()">
             </div>
             <!--
                 <button class="export-btn" onclick="exportToCSV()">
@@ -491,8 +561,10 @@ $total_enquiries = $result->num_rows;
                             <th>Name</th>
                             <th>Email Address</th>
                             <th>Phone Number</th>
+                            <th hidden>Course</th>
                             <th>Course Interest</th>
                             <th>Message</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -503,14 +575,18 @@ $total_enquiries = $result->num_rows;
                                 $email = htmlspecialchars($row['uemail']);
                                 $phone = htmlspecialchars($row['uphone']);
                                 $course = htmlspecialchars($row['course']);
+                                $course_detail = htmlspecialchars($row['course_detail']);
                                 $message = htmlspecialchars($row['cmessage']);
+                                $submitted_at = htmlspecialchars($row['submitted_at']);
                                 
                                 echo "<tr>
                                     <td class='name' data-label='Name'>{$name}</td>
                                     <td class='email' data-label='Email'><a style='text-decoration:none;' href='mailto:{$email}'>{$email}</a></td>
                                     <td class='phone' data-label='Phone'><a style='text-decoration:none;' href='tel:{$phone}'>{$phone}</a></td>
-                                    <td data-label='Course'><span class='course'>{$course}</span></td>
+                                    <td hidden data-label='Course'><span class='course'>{$course}</span></td>
+                                    <td class='coursedetail' data-label='Coursedetail'>{$course_detail}</td>
                                     <td class='message' data-label='Message'>{$message}</td>
+                                    <td class='submitted_at' data-label='submitted_at'>{$submitted_at}</td>
                                 </tr>";
                             }
                         } else {
@@ -525,6 +601,31 @@ $total_enquiries = $result->num_rows;
             </div>
         </div>
     </div>
+    
+    <script>
+        function filterByDate() {
+            let selectedDate = document.getElementById("dateFilter").value;
+            let rows = document.querySelectorAll("tbody tr");
+
+            rows.forEach(row => {
+                let dateCell = row.querySelector(".submitted_at");
+                if (!dateCell) return;
+
+                // Extract only YYYY-MM-DD from datetime
+                let rowDate = dateCell.textContent.trim().split(" ")[0];
+
+                if (selectedDate === "") {
+                    row.style.display = "";
+                } else if (rowDate === selectedDate) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+
+            updateEmptyState();
+        }
+    </script>
 
     <script>
         // Search Functionality
@@ -560,6 +661,10 @@ $total_enquiries = $result->num_rows;
                 } else if (type === "fellowship" && courseText.includes("fellowship")) {
                     row.style.display = "";
                 } else if (type === "mastery" && (courseText.includes("mastery") || courseText.includes("bootcamp"))) {
+                    row.style.display = "";
+                }else if (type === "examcourse" && courseText.includes("examcourse")) {
+                    row.style.display = "";
+                } else if (type === "shortcourse" && courseText.includes("shortcourse")) {
                     row.style.display = "";
                 } else {
                     row.style.display = "none";
@@ -619,6 +724,7 @@ $total_enquiries = $result->num_rows;
             });
         });
     </script>
+
 </body>
 </html>
 
