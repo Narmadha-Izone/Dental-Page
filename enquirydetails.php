@@ -1,7 +1,7 @@
 <?php
+require_once "session.php";
 require_once "db_conn.php";
 
-//$sql = "SELECT uname, uemail, uphone, course, course_detail, cmessage, submitted_at FROM contact_messages ORDER BY uname ASC";
 $sql="
     SELECT 
         contmsg.uname uname, contmsg.uemail uemail, contmsg.uphone uphone, contmsg.course course,
@@ -10,7 +10,7 @@ $sql="
         contact_messages contmsg
     union all 
     select 
-        enq.enqname uname,enq.enqmail uemail,enq.enqph uphone,'' course,enq.enqcourse course_detail,
+        enq.enqname uname,enq.enqmail uemail,enq.enqph uphone,enq.course course,enq.enqcourse course_detail,
         enq.enqmsg cmessage,enq.submitted_at submitted_at 
     from 
         enquiry_messages enq 
@@ -26,7 +26,14 @@ $total_enquiries = $result->num_rows;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enquiry Management - King's Dental Academy</title>
-    
+    <!-- Force reload on back button -->
+    <script>
+    window.addEventListener("pageshow", function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    });
+    </script>
     <style>
         * {
             margin: 0;
@@ -523,7 +530,7 @@ $total_enquiries = $result->num_rows;
                 <div class="number"><?php echo $total_enquiries; ?></div>
                 <div class="label">Total Enquiries</div>
             </div>
-            <a href="index.php" class="back-btn">← Back to Home</a>
+            <a href="logout.php" class="back-btn">← Back to Home</a>
         </div>
 
         <!-- Controls -->
@@ -545,11 +552,6 @@ $total_enquiries = $result->num_rows;
                 <button class="filter-btn" onclick="filterTable('examcourse')">Exam Courses</button>
                 <input type="date" id="dateFilter" class="date-picker" onchange="filterByDate()">
             </div>
-            <!--
-                <button class="export-btn" onclick="exportToCSV()">
-                    📥 Export CSV
-                </button>
-            -->
         </div>
 
         <!-- Table -->
@@ -683,36 +685,6 @@ $total_enquiries = $result->num_rows;
                 console.log("No visible rows");
             }
         }
-
-        /*
-        // Export to CSV
-        function exportToCSV() {
-            let table = document.getElementById("enquiryTable");
-            let rows = Array.from(table.querySelectorAll("tr"));
-            let csv = [];
-
-            rows.forEach(row => {
-                let cols = Array.from(row.querySelectorAll("th, td"));
-                let rowData = cols.map(col => {
-                    let text = col.textContent.trim();
-                    // Escape quotes and wrap in quotes
-                    return '"' + text.replace(/"/g, '""') + '"';
-                });
-                csv.push(rowData.join(","));
-            });
-
-            let csvContent = csv.join("\n");
-            let blob = new Blob([csvContent], { type: "text/csv" });
-            let url = URL.createObjectURL(blob);
-            
-            let link = document.createElement("a");
-            link.href = url;
-            link.download = "enquiries_" + new Date().toISOString().split('T')[0] + ".csv";
-            link.click();
-            
-            URL.revokeObjectURL(url);
-        }
-        */
 
         // Add smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

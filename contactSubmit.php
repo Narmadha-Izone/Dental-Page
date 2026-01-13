@@ -28,9 +28,28 @@ if (!$name || !$email || !$message || !$course || !$course_detail) {
     exit;
 }
 
+ // SQL query to get max(id)+1
+    $sql = "
+        select 
+        case 
+            when max(id) is NULL then concat(YEAR(curdate()), '001')
+            else max(id) + 1
+        end id
+        from contact_messages;
+    ";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $id = $row['id'];
+        
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
 // Insert into database using prepared statement
 $stmt = $conn->prepare(
-    "INSERT INTO contact_messages (uname, uemail, uphone, course, course_detail, cmessage) VALUES (?, ?, ?, ?, ?, ?)"
+    "INSERT INTO contact_messages (id, uname, uemail, uphone, course, course_detail, cmessage) VALUES (?, ?, ?, ?, ?, ?, ?)"
 );
 
 if (!$stmt) {
@@ -43,7 +62,8 @@ if (!$stmt) {
 }
 
 $stmt->bind_param(
-    "ssssss",
+    "issssss",
+    $id,
     $name,
     $email,
     $phone,

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -360,6 +363,8 @@
     </style>
 </head>
 <body>
+    
+
     <div class="login-container">
         <div class="login-card">
             <div class="logo-section">
@@ -476,12 +481,15 @@
 
             // 4. Check if a row exists
             if ($stmt->num_rows > 0) {
+                $_SESSION['username'] = $username;
+                $_SESSION['logged_in'] = true;
+
                 echo "<script>document.getElementById('successMessage').style.display='block';</script>";
                 echo "<script>window.location.href='enquirydetails.php'</script>";
 
             } else {
                 echo "<script>document.getElementById('errorMessage').style.display='block';</script>";
-                echo "<script>window.location.href='index.html'</script>";
+                echo "<script>window.location.href='index.php'</script>";
             }
 
             $stmt->close();
