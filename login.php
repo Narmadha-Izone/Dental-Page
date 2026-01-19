@@ -109,10 +109,21 @@
             justify-content: center;
             margin: 0 auto 1rem;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            font-size: 2.5rem;
-            color: var(--white);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;   /* 🔑 important */
         }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* fills circle without distortion */
+            transition: transform 0.3s ease;
+        }
+
+        .logo-circle:hover img {
+            transform: scale(1.05);
+        }
+
 
         .logo-section h1 {
             color: var(--white);
@@ -368,7 +379,9 @@
     <div class="login-container">
         <div class="login-card">
             <div class="logo-section">
-                <div class="logo-circle">🦷</div>
+                <div class="logo-circle">
+                    <img src="images/logo.jpg" alt="King's Dental Academy Logo">
+                </div>
                 <h1>King's Dental Academy</h1>
             </div>
 
@@ -412,13 +425,14 @@
                         </button>
                     </div>
                 </div>
-
+<!--
                 <div class="form-options">
                     <a href="#" class="forgot-password">Forgot Password?</a>
                 </div>
+-->
                 <button type="submit" class="login-btn" name="login">Login</button> 
             </form>
-
+<!--
             <div class="divider">
                 <span>or</span>
             </div>
@@ -426,6 +440,7 @@
             <div class="signup-link">
                 Don't have an account? <a href="#">Sign up</a>
             </div>
+-->
         </div>
     </div>
 

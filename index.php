@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King's Dental Academy</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="t2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -42,28 +42,85 @@
         </nav>
     </header>
 
-    <!-- Hero Section
+    <!-- Hero Section  -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <img src="images/heroImg.png" alt="Dental Illustration" class="hero-image">
+        <!-- Animated background orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
 
-            <h1>Master the Art of Dental Excellence</h1>
-            <p>Transform your dental career with world-class education and hands-on training from industry experts</p>
+        <!-- Grid overlay -->
+        <div class="grid-overlay"></div>
+
+        <!-- Floating particles -->
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 7s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
+
+        <div class="hero-content">
+            <div class="glass-card">
+                <span class="hero-tagline">Dental Education Excellence</span>
+
+                <h1 class="hero-title">
+                    <span class="title-line">Master the Art of Dental Excellence</span>
+                </h1>
+
+                <p class="hero-desc">
+                    Transform your dental career with world-class education
+                    and hands-on training from industry experts.
+                </p>
+
+                <!--   <div class="cta-wrapper">
+                        <a href="#courses" class="cta-btn">
+                            <span>Explore Courses</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                -->
+            </div>
+        </div>
+
+        <div class="hero-cta-bottom">
+            <a href="#courses" class="cta-btn">
+                <span>Explore Courses</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="scroll-indicator">
+           
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+
+
+     <!-- Hero Section 
+   <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <span class="hero-tagline">Dental Education Excellence</span>
+            <h1>Master the Art of<br>Dental Excellence</h1>
+            <p>
+                Transform your dental career with world-class education
+                and hands-on training from industry experts.
+            </p>
             <a href="#courses" class="cta-btn">Explore Courses</a>
         </div>
     </section>
- -->
 
-     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Master the Art of Dental Excellence</h1>
-            <p>Transform your dental career with world-class education and hands-on training from industry experts</p>
-            <a href="#courses" class="cta-btn">Explore Courses</a>
-        </div>
-    </section>
-
-
+-->
      <!-- About Section -->
     <section id="about">
         <div class="container">
